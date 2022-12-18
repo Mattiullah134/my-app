@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './App.css';
-// import {
-//   BrowserRouter,
-//   Routes,
-//   Route,
-// } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 import About from './componet/About';
 import NavBar from './componet/NavBar';
 import TextInput from './componet/TextForm'
@@ -27,33 +27,33 @@ function App() {
       setDarkMode("dark");
       document.body.style.backgroundColor = '#343a40'
       showAlert("Dark mode sussessfully enable", "success")
-      document.title = 'TextUtills - Dark mode';
+      // document.title = 'TextUtills - Dark mode';
     }
     else {
       setDarkMode("light");
       document.body.style.backgroundColor = 'white'
       showAlert("Dark mode sussessfully Disable", "success")
-      document.title = 'TextUtills - Light mode';
+      // document.title = 'TextUtills - Light mode';
 
     }
   }
 
   return (
     <>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         <NavBar title="TextUtils" about="About textUtils" mode={darkMode} toogleMode={toogleModefunc} />
         <Alert alert={alert} />
         {/* <NavBar title = "TextUtils"   /> */}
         {/* <NavBar about = "About textUtils"  /> */}
         {/* <NavBar /> */}
         <div className='container my-4'>
-          {/* <Routes> */}
-          <TextInput alert={showAlert} heading="Enter the text to analyze" mode={darkMode} />
-            {/* <Route exat path='/' element={<TextInput alert={showAlert} heading="Enter the text to analyze" mode={darkMode} />} /> */}
-            {/* <Route exat path='about' element={<About />} /> */}
-          {/* </Routes> */}
+          <Routes>
+          {/* <TextInput alert={showAlert} heading="Enter the text to analyze" mode={darkMode} /> */}
+            <Route exat path='/' element={<TextInput alert={showAlert} heading="Try TextUtils - Word counter , Character counter, Remove extra spaces" mode={darkMode} />} />
+            <Route exat path='about' element={<About mode = {darkMode} />} />
+          </Routes>
         </div>
-      {/* </BrowserRouter> */}
+      </BrowserRouter>
     </>
   );
 }
